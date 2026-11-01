@@ -19,3 +19,4 @@ docker compose run --rm tests
 
 | Projeto | Post |
 |---|---|
+| [2026-11-rate-limiting-minimal-apis](2026-11-rate-limiting-minimal-apis/) | [Rate limiting com Minimal APIs](https://programero.blogspot.com/2026/11/rate-limiting-minimal-apis.html) |

@@ -1,0 +1,19 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and test every project
+        run: |
+          for dir in */; do
+            if [ -f "$dir/docker-compose.yml" ]; then
+              (cd "$dir" && docker compose build && docker compose run --rm tests)
+            fi
+          done
