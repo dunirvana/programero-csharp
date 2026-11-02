@@ -1,7 +1,5 @@
 using System.Net;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.AspNetCore.TestHost;
-using Microsoft.Extensions.Configuration;
 using Xunit;
 
 namespace RateLimitDemo.Tests;
@@ -12,13 +10,11 @@ public class RateLimitTests : IClassFixture<WebApplicationFactory<Program>>
 
     public RateLimitTests(WebApplicationFactory<Program> factory)
     {
-        _factory = factory.WithWebHostBuilder(b =>
-            b.ConfigureAppConfiguration((_, cfg) =>
-                cfg.AddInMemoryCollection(new Dictionary<string, string?>
-                {
-                    ["RateLimit:PermitLimit"] = "3",
-                    ["RateLimit:WindowSeconds"] = "60"
-                })));
+        // O Program le o limite ao montar o builder, entao a configuracao
+        // precisa existir antes do host subir (variaveis de ambiente resolvem isso).
+        Environment.SetEnvironmentVariable("RateLimit__PermitLimit", "3");
+        Environment.SetEnvironmentVariable("RateLimit__WindowSeconds", "60");
+        _factory = factory;
     }
 
     [Fact]
