@@ -21,3 +21,9 @@ docker compose run --rm tests
 |---|---|
 | [2026-11-rate-limiting-minimal-apis](2026-11-rate-limiting-minimal-apis/) | [Rate limiting com Minimal APIs](https://programero.blogspot.com/2026/11/rate-limiting-minimal-apis.html) |
 | [2026-11-background-service-channel](2026-11-background-service-channel/) | [Fila em memória com BackgroundService e Channel](https://programero.blogspot.com/2026/11/background-service-channel.html) |
+
+## Problema e solução
+
+| Projeto | Problema | Post |
+|---|---|---|
+| [2026-11-order-status-state-pattern](2026-11-order-status-state-pattern/) | Status de pedido controlado com `if` espalhado gera estorno duplo | [Status de pedido sem if espalhado: o padrão State](https://programero.blogspot.com/2026/11/order-status-state-pattern.html) |
